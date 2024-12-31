@@ -132,10 +132,10 @@ spec:
                 port:
                   number: 5000
 
+  {{- if .Values.general.ingress.tls.name }}
   tls:
     - hosts:
       - {{ .Values.general.domain }}
-      {{- if .Values.general.ingress.tls.name }}
       secretName: {{ .Values.general.ingress.tls.name }}
-      {{- end }}
+  {{- end }}
 {{- end }}
